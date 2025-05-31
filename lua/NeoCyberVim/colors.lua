@@ -1,0 +1,38 @@
+local config=require("NeoCyberVim.config")
+local hsl=require("NeoCyberVim.utils").hsl
+
+local M = {
+  standardBlack = "#000000",
+}
+
+-- Editor
+M.editorBackground       = config.transparent and "NONE" or "#101116"
+M.currentLineBackground  = "#030202"
+M.selectionBackground    = "#000000"
+M.popupBackground        = "#140007"
+M.menuOptionBackground   = "#1e2424"
+M.border                 = "#ff0055"
+M.mutedForeground        = "#909090"
+M.mainText               = "#ff0055"
+M.selectedText           = "#ffffff"
+M.inactiveText           = "#909090"
+M.lineNumberText         = "#ff0055"
+M.lineNumberTextActive   = "#00ffc8"
+M.commentText            = "#eb4d81"
+
+-- Syntax
+M.syntaxConstant         = "#2088ff"
+M.syntaxKeyword          = "#ff0055"
+M.syntaxFunction         = "#ffffff"
+M.syntaxProperty         = "#ff8ba8"
+M.stringText             = "#00ff9d"
+M.syntaxNumber           = "#c080ff"
+M.syntaxType             = "#ff9020"
+M.syntaxClass            = "#a0ff20"
+
+-- Diagnostics / Messages
+M.errorText              = "#ff1865"
+M.warningText            = "#009550"
+M.successText            = "#00ffc8"
+
+return M
