@@ -34,6 +34,12 @@ M.syntaxBracket          = "#ff9020"
 M.syntaxPunctuation      = "#ff9020"
 M.syntaxOperator         = "#c080ff"
 
+-- Git colors más intensos
+M.gitAdd                 = "#00ff00"
+M.gitChange              = "#00d0ff"  
+M.gitDelete              = "#ff0000"
+
+
 -- Diagnostics / Messages
 M.errorText              = "#ff1865"
 M.warningText            = "#ffffff"

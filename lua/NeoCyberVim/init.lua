@@ -50,10 +50,12 @@ end
 
 function M.set_groups()
 	local bg = config.transparent and "NONE" or colors.editorBackground
-	local diff_add = utils.shade(colors.successText, 0.5, colors.editorBackground)
-	local diff_delete = utils.shade(colors.syntaxKeyword, 0.5, colors.editorBackground)
-	local diff_change = utils.shade(colors.syntaxFunction, 0.5, colors.editorBackground)
-	local diff_text = utils.shade(colors.syntaxProperty, 0.5, colors.editorBackground)
+	
+	-- COLORES GIT MÁS INTENSOS (sin shade)
+	local diff_add = colors.gitAdd or colors.successText
+	local diff_delete = colors.gitDelete or colors.syntaxKeyword  
+	local diff_change = colors.gitChange or colors.syntaxFunction
+	local diff_text = colors.syntaxProperty
 
 	local groups = {
 		-- base
@@ -140,6 +142,11 @@ function M.set_groups()
 			italic = config.italics.comments or false,
 		},
 
+		-- GIT SIGNS
+		GitSignsAdd = { fg = diff_add },
+		GitSignsChange = { fg = diff_change },
+		GitSignsDelete = { fg = diff_delete },
+
 		-- SYNTAX TRADICIONAL
 		Constant = { fg = colors.syntaxConstant },
 		String = {
@@ -203,6 +210,7 @@ function M.set_groups()
 		DiagnosticUnderlineInfo = { undercurl = true, link = "DiagnosticInfo" },
 		DiagnosticUnderlineHint = { undercurl = true, link = "DiagnosticHint" },
 
+		-- TREE-SITTER
 		["@text"] = { fg = colors.mainText },
 		["@comment"] = { link = "Comment" },
 		["@punctuation.bracket"] = { fg = colors.syntaxBracket },
@@ -221,8 +229,10 @@ function M.set_groups()
 		["@function.builtin"] = { fg = colors.syntaxFunction },
 		["@parameter"] = { fg = colors.syntaxConstant },
 		["@method"] = { fg = colors.syntaxFunction },
-		["@field"] = { fg = colors.syntaxProperty },
-		["@property"] = { fg = colors.syntaxProperty },
+		
+		-- FIELD ACCESS
+		["@field"] = { fg = colors.syntaxProperty },  -- ROJO para .syntaxKeyword
+		["@property"] = { fg = colors.syntaxProperty },  -- ROJO para propiedades
 		["@constructor"] = { fg = colors.syntaxFunction },
 
 		["@keyword"] = { fg = colors.syntaxKeyword },
@@ -231,25 +241,28 @@ function M.set_groups()
 
 		["@type"] = { link = "Type" },
 		["@type.builtin"] = { fg = colors.syntaxConstant },
-		["@variable"] = { fg = colors.syntaxConstant },
-		["@variable.builtin"] = { fg = colors.syntaxConstant },
-    ["@variable.member"] = { fg = colors.syntaxConstant },
+		
+		-- VARIABLES - MODIFICADO
+		["@variable"] = { fg = colors.syntaxConstant },  -- BLANCO para colors
+		["@variable.builtin"] = { fg = colors.syntaxConstant },  -- BLANCO
+		["@variable.member"] = { fg = colors.syntaxProperty },  -- ROJO para member access
 
 		["@tag"] = { link = "Tag" },
 		["@tag.delimiter"] = { fg = colors.syntaxProperty },
 		["@tag.attribute"] = { fg = colors.syntaxFunction },
 
+		-- LSP SEMANTIC TOKENS
 		["@lsp.type.variable"] = { fg = colors.syntaxConstant },
 		["@lsp.type.variable.lua"] = { fg = colors.syntaxConstant },
 		["@lsp.type.parameter"] = { fg = colors.syntaxConstant },
-		["@lsp.type.property"] = { fg = colors.syntaxProperty },
+		["@lsp.type.property"] = { fg = colors.syntaxProperty },  -- ROJO para propiedades
 		["@lsp.type.function"] = { fg = colors.syntaxFunction },
 		["@lsp.type.method"] = { fg = colors.syntaxFunction },
 		["@lsp.type.keyword"] = { fg = colors.syntaxKeyword },
 		["@lsp.type.operator"] = { fg = colors.syntaxOperator },
 		["@lsp.typemod.variable.defaultLibrary"] = { fg = colors.syntaxConstant },
 		["@lsp.typemod.variable.declaration"] = { fg = colors.syntaxConstant },
-    ["@lsp.typemod.variable.readonly"] = { fg = colors.syntaxConstant },
+		["@lsp.typemod.variable.readonly"] = { fg = colors.syntaxConstant },
 
 		-- SEMANTIC HIGHLIGHTING OVERRIDES
 		["@lsp.type.namespace"] = { link = "@namespace" },
