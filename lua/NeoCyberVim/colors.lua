@@ -22,7 +22,7 @@ M.commentText            = "#ffffff"
 
 -- Syntax
 M.syntaxConstant         = "#ffffff"
-M.syntaxKeyword          = "#ff0055"
+M.syntaxKeyword          = "#c080ff"
 M.syntaxFunction         = "#2088ff"
 M.syntaxProperty         = "#ff8ba8"
 M.stringText             = "#74bcfb"
