@@ -95,7 +95,7 @@ function M.set_groups()
 		MsgArea = { link = "Normal" },
 		-- MsgSeparator = {},
 		MoreMsg = { fg = colors.syntaxConstant },
-		NonText = { fg = bg },
+		NonText = { fg = bg }, 
 		NormalFloat = { bg = bg },
 		FloatBorder = { fg = colors.border },
 		NormalNC = { link = "Normal" },
@@ -140,7 +140,7 @@ function M.set_groups()
 			italic = config.italics.comments or false,
 		},
 
-		-- SYNTAX GROUPS MODIFICADOS
+		-- SYNTAX TRADICIONAL
 		Constant = { fg = colors.syntaxConstant },
 		String = {
 			fg = colors.stringText,
@@ -159,14 +159,12 @@ function M.set_groups()
 		Parameter = { fg = colors.syntaxConstant },
 		Statement = { fg = colors.syntaxKeyword },
 		Conditional = { fg = colors.syntaxKeyword },
-		-- Repeat = {},
 		Label = { fg = colors.syntaxFunction },
 		Operator = { fg = colors.syntaxOperator },
 		Keyword = { fg = colors.syntaxKeyword, italic = config.italics.keywords or false },
 		Exception = { fg = colors.syntaxKeyword },
 
 		PreProc = { link = "Keyword" },
-		-- Include = {},
 		Define = { fg = colors.syntaxConstant },
 		Macro = { link = "Define" },
 		PreCondit = { fg = colors.syntaxKeyword },
@@ -175,10 +173,6 @@ function M.set_groups()
 		Struct = { link = "Type" },
 		Class = { link = "Type" },
 
-		-- StorageClass = {},
-		-- Structure = {},
-		-- Typedef = {},
-
 		Attribute = { link = "Character" },
 		Punctuation = { fg = colors.syntaxBracket },
 		Special = { fg = colors.syntaxProperty },
@@ -186,7 +180,6 @@ function M.set_groups()
 		SpecialChar = { fg = colors.syntaxKeyword },
 		Tag = { fg = colors.stringText },
 		Delimiter = { fg = colors.syntaxBracket },
-		-- SpecialComment = {},
 		Debug = { fg = colors.mainText },
 
 		Underlined = { underline = true },
@@ -196,13 +189,7 @@ function M.set_groups()
 		Error = { link = "ErrorMsg" },
 		Todo = { fg = colors.warningText, bold = true },
 
-		-- LspReferenceText = {},
-		-- LspReferenceRead = {},
-		-- LspReferenceWrite = {},
-		-- LspCodeLens = {},
-		-- LspCodeLensSeparator = {},
-		-- LspSignatureActiveParameter = {},
-
+		-- DIAGNOSTICS
 		DiagnosticError = { link = "Error" },
 		DiagnosticWarn = { link = "WarningMsg" },
 		DiagnosticInfo = { fg = colors.syntaxFunction },
@@ -215,114 +202,54 @@ function M.set_groups()
 		DiagnosticUnderlineWarn = { undercurl = true, link = "DiagnosticWarn" },
 		DiagnosticUnderlineInfo = { undercurl = true, link = "DiagnosticInfo" },
 		DiagnosticUnderlineHint = { undercurl = true, link = "DiagnosticHint" },
-		-- DiagnosticFloatingError = {},
-		-- DiagnosticFloatingWarn = {},
-		-- DiagnosticFloatingInfo = {},
-		-- DiagnosticFloatingHint = {},
-		-- DiagnosticSignError = {},
-		-- DiagnosticSignWarn = {},
-		-- DiagnosticSignInfo = {},
-		-- DiagnosticSignHint = {},
 
 		["@text"] = { fg = colors.mainText },
-		["@texcolorscheme.literal"] = { link = "Property" },
-		-- ["@texcolorscheme.reference"] = {},
-		["@texcolorscheme.strong"] = { link = "Bold" },
-		["@texcolorscheme.italic"] = { link = "Italic" },
-		["@texcolorscheme.title"] = { link = "Keyword" },
-		["@texcolorscheme.uri"] = {
-			fg = colors.syntaxFunction,
-			sp = colors.syntaxFunction,
-			underline = true,
-		},
-		["@texcolorscheme.underline"] = { link = "Underlined" },
-		["@symbol"] = { fg = colors.syntaxProperty },
-		["@texcolorscheme.todo"] = { link = "Todo" },
 		["@comment"] = { link = "Comment" },
-		["@punctuation"] = { link = "Punctuation" },
 		["@punctuation.bracket"] = { fg = colors.syntaxBracket },
 		["@punctuation.delimiter"] = { fg = colors.syntaxBracket },
-		["@punctuation.terminator.statement"] = { link = "Delimiter" },
 		["@punctuation.special"] = { fg = colors.syntaxBracket },
-		["@punctuation.separator.keyvalue"] = { fg = colors.syntaxBracket },
-
-		["@texcolorscheme.diff.add"] = { fg = colors.successText },
-		["@texcolorscheme.diff.delete"] = { fg = colors.errorText },
 
 		["@constant"] = { fg = colors.syntaxConstant },
 		["@constant.builtin"] = { fg = colors.syntaxConstant },
-		["@constancolorscheme.builtin"] = { link = "Keyword" },
-		-- ["@constancolorscheme.macro"] = {},
-		-- ["@define"] = {},
-		-- ["@macro"] = {},
 		["@string"] = { link = "String" },
 		["@string.escape"] = { fg = utils.shade(colors.stringText, 0.45) },
-		["@string.special"] = { fg = utils.shade(colors.syntaxFunction, 0.45) },
-		-- ["@character"] = {},
-		-- ["@character.special"] = {},
 		["@number"] = { link = "Number" },
-		["@number.tsx"] = { link = "Constant" },
 		["@boolean"] = { link = "Boolean" },
-		-- ["@float"] = {},
-		["@function"] = {
-			fg = colors.syntaxFunction,
-			italic = config.italics.functions or false,
-		},
+
+		["@function"] = { fg = colors.syntaxFunction },
 		["@function.call"] = { fg = colors.syntaxFunction },
 		["@function.builtin"] = { fg = colors.syntaxFunction },
-		-- ["@function.macro"] = {},
 		["@parameter"] = { fg = colors.syntaxConstant },
 		["@method"] = { fg = colors.syntaxFunction },
 		["@field"] = { fg = colors.syntaxConstant },
 		["@property"] = { fg = colors.syntaxConstant },
 		["@constructor"] = { fg = colors.syntaxFunction },
-		-- ["@conditional"] = {},
-		-- ["@repeat"] = {},
-		["@label"] = { link = "Label" },
-		["@operator"] = { fg = colors.syntaxOperator },
-		["@exception"] = { link = "Exception" },
-		["@variable"] = {
-			fg = colors.syntaxConstant,
-			italic = config.italics.variables or false,
-		},
-		["@variable.builtin"] = { fg = colors.syntaxConstant },
-		["@variable.member"] = { fg = colors.syntaxConstant },
-		["@variable.parameter"] = {
-			fg = colors.syntaxConstant,
-			italic = config.italics.variables or false,
-		},
-		["@type"] = { link = "Type" },
-		["@type.definition"] = { fg = colors.mainText },
-		["@type.builtin"] = { fg = colors.syntaxConstant },
-		["@type.qualifier"] = { fg = colors.syntaxFunction },
-		["@type.tsx"] = { fg = colors.mainText },
+
 		["@keyword"] = { fg = colors.syntaxKeyword },
-		-- ["@storageclass"] = {},
-		-- ["@structure"] = {},
-		["@namespace"] = { link = "Type" },
-		["@annotation"] = { link = "Label" },
-		-- ["@include"] = {},
-		-- ["@preproc"] = {},
-		["@debug"] = { fg = colors.mainText },
+		["@keyword.function"] = { fg = colors.syntaxKeyword },
+		["@operator"] = { fg = colors.syntaxOperator },
+
+		["@type"] = { link = "Type" },
+		["@type.builtin"] = { fg = colors.syntaxConstant },
+		["@variable"] = { fg = colors.syntaxConstant },
+		["@variable.builtin"] = { fg = colors.syntaxConstant },
+
 		["@tag"] = { link = "Tag" },
-		["@tag.builtin"] = { link = "Tag" },
 		["@tag.delimiter"] = { fg = colors.syntaxProperty },
 		["@tag.attribute"] = { fg = colors.syntaxFunction },
-		["@tag.jsx.element"] = { fg = colors.syntaxFunction },
-		["@tag.tsx"] = { fg = colors.syntaxConstant },
-		["@attribute"] = { fg = colors.syntaxConstant },
-		["@error"] = { link = "Error" },
-		["@warning"] = { link = "WarningMsg" },
-		["@info"] = { fg = colors.syntaxFunction },
 
-		-- Specific languages
-		-- overrides
-		["@label.json"] = { fg = colors.syntaxProperty }, -- For json
-		["@label.help"] = { link = "@texcolorscheme.uri" }, -- For help files
-		["@texcolorscheme.uri.html"] = { underline = true }, -- For html
-		["@markup.heading"] = { fg = colors.mainText, bold = true }, -- For markdown
+		["@lsp.type.variable"] = { fg = colors.syntaxConstant },
+		["@lsp.type.variable.lua"] = { fg = colors.syntaxConstant },
+		["@lsp.type.parameter"] = { fg = colors.syntaxConstant },
+		["@lsp.type.property"] = { fg = colors.syntaxConstant },
+		["@lsp.type.function"] = { fg = colors.syntaxFunction },
+		["@lsp.type.method"] = { fg = colors.syntaxFunction },
+		["@lsp.type.keyword"] = { fg = colors.syntaxKeyword },
+		["@lsp.type.operator"] = { fg = colors.syntaxOperator },
+		["@lsp.typemod.variable.defaultLibrary"] = { fg = colors.syntaxConstant },
+		["@lsp.typemod.variable.declaration"] = { fg = colors.syntaxConstant },
 
-		-- semantic highlighting
+		-- SEMANTIC HIGHLIGHTING OVERRIDES
 		["@lsp.type.namespace"] = { link = "@namespace" },
 		["@lsp.type.type"] = { link = "@function" },
 		["@lsp.type.class"] = { link = "@type" },
@@ -330,21 +257,14 @@ function M.set_groups()
 		["@lsp.type.enumMember"] = { fg = colors.syntaxFunction },
 		["@lsp.type.interface"] = { link = "@function" },
 		["@lsp.type.struct"] = { link = "@type" },
-		["@lsp.type.parameter"] = { link = "@parameter" },
-		["@lsp.type.property"] = { link = "@text" },
-		["@lsp.type.function"] = { link = "@function" },
-		["@lsp.type.method"] = { link = "@method" },
 		["@lsp.type.macro"] = { link = "@label" },
 		["@lsp.type.decorator"] = { link = "@label" },
-		["@lsp.type.variable"] = { link = "@text" },
-		["@lsp.typemod.function"] = { link = "@function" },
-		["@lsp.typemod.parameter.declaration"] = { link = "@text" },
 
-		["@lsp.typemod.variable.readonly"] = { link = "@text" },
-		["@lsp.typemod.variable.declaration"] = { fg = colors.syntaxConstant },
-
-		["@lsp.typemod.variable.readonly.typescriptreact"] = { fg = colors.syntaxConstant },
-		["@lsp.typemod.function.declaration.typescriptreact"] = { fg = colors.syntaxConstant },
+		-- Specific languages
+		["@label.json"] = { fg = colors.syntaxProperty },
+		["@label.help"] = { link = "@texcolorscheme.uri" },
+		["@texcolorscheme.uri.html"] = { underline = true },
+		["@markup.heading"] = { fg = colors.mainText, bold = true },
 	}
 
 	-- integrations
