@@ -18,17 +18,21 @@ M.selectedText           = "#ffffff"
 M.inactiveText           = "#909090"
 M.lineNumberText         = "#ff0055"
 M.lineNumberTextActive   = "#00ffc8"
-M.commentText            = "#eb4d81"
+M.commentText            = "#ffffff"
 
 -- Syntax
-M.syntaxConstant         = "#2088ff"
+M.syntaxConstant         = "#ffffff"
 M.syntaxKeyword          = "#ff0055"
-M.syntaxFunction         = "#ffffff"
+M.syntaxFunction         = "#2088ff"
 M.syntaxProperty         = "#ff8ba8"
-M.stringText             = "#00ff9d"
+M.stringText             = "#74bcfb"
 M.syntaxNumber           = "#c080ff"
 M.syntaxType             = "#ff9020"
 M.syntaxClass            = "#a0ff20"
+
+M.syntaxBracket          = "#ff9020"
+M.syntaxPunctuation      = "#ff9020"
+M.syntaxOperator         = "#c080ff"
 
 -- Diagnostics / Messages
 M.errorText              = "#ff1865"
