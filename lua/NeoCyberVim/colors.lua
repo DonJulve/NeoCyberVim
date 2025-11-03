@@ -17,7 +17,7 @@ M.mainText               = "#ff0055"
 M.selectedText           = "#ffffff"
 M.inactiveText           = "#909090"
 M.lineNumberText         = "#ff0055"
-M.lineNumberTextActive   = "#00ffc8"
+M.lineNumberTextActive   = "#a0ff20"
 M.commentText            = "#ffffff"
 
 -- Syntax
@@ -36,7 +36,7 @@ M.syntaxOperator         = "#c080ff"
 
 -- Diagnostics / Messages
 M.errorText              = "#ff1865"
-M.warningText            = "#009550"
-M.successText            = "#00ffc8"
+M.warningText            = "#ffffff"
+M.successText            = "#a0ff20"
 
 return M

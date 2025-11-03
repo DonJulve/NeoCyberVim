@@ -221,8 +221,8 @@ function M.set_groups()
 		["@function.builtin"] = { fg = colors.syntaxFunction },
 		["@parameter"] = { fg = colors.syntaxConstant },
 		["@method"] = { fg = colors.syntaxFunction },
-		["@field"] = { fg = colors.syntaxConstant },
-		["@property"] = { fg = colors.syntaxConstant },
+		["@field"] = { fg = colors.syntaxProperty },
+		["@property"] = { fg = colors.syntaxProperty },
 		["@constructor"] = { fg = colors.syntaxFunction },
 
 		["@keyword"] = { fg = colors.syntaxKeyword },
@@ -233,6 +233,7 @@ function M.set_groups()
 		["@type.builtin"] = { fg = colors.syntaxConstant },
 		["@variable"] = { fg = colors.syntaxConstant },
 		["@variable.builtin"] = { fg = colors.syntaxConstant },
+    ["@variable.member"] = { fg = colors.syntaxConstant },
 
 		["@tag"] = { link = "Tag" },
 		["@tag.delimiter"] = { fg = colors.syntaxProperty },
@@ -241,13 +242,14 @@ function M.set_groups()
 		["@lsp.type.variable"] = { fg = colors.syntaxConstant },
 		["@lsp.type.variable.lua"] = { fg = colors.syntaxConstant },
 		["@lsp.type.parameter"] = { fg = colors.syntaxConstant },
-		["@lsp.type.property"] = { fg = colors.syntaxConstant },
+		["@lsp.type.property"] = { fg = colors.syntaxProperty },
 		["@lsp.type.function"] = { fg = colors.syntaxFunction },
 		["@lsp.type.method"] = { fg = colors.syntaxFunction },
 		["@lsp.type.keyword"] = { fg = colors.syntaxKeyword },
 		["@lsp.type.operator"] = { fg = colors.syntaxOperator },
 		["@lsp.typemod.variable.defaultLibrary"] = { fg = colors.syntaxConstant },
 		["@lsp.typemod.variable.declaration"] = { fg = colors.syntaxConstant },
+    ["@lsp.typemod.variable.readonly"] = { fg = colors.syntaxConstant },
 
 		-- SEMANTIC HIGHLIGHTING OVERRIDES
 		["@lsp.type.namespace"] = { link = "@namespace" },
