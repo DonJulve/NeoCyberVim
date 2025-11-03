@@ -18,7 +18,7 @@ M.selectedText           = "#ffffff"
 M.inactiveText           = "#909090"
 M.lineNumberText         = "#ff0055"
 M.lineNumberTextActive   = "#a0ff20"
-M.commentText            = "#ffffff"
+M.commentText            = "#5b5798"
 
 -- Syntax
 M.syntaxConstant         = "#ffffff"
